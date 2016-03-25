@@ -59,6 +59,27 @@ function BinaryTree() {
     }
   };
 
+  this.delete = function(value) {
+    var found = false;
+    var current = this.root;
+
+    while (!found && current) {
+      if (value < current) {
+        current = current.left;
+      } else if (value > current) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+
+    if (found) {
+      //TODO: remove node and re-order values
+    } else {
+      return;
+    }
+
+  }
 }
 
 
