@@ -79,7 +79,7 @@ function BinaryTree() {
 
         if (found) {
             if (parent) {
-                if (current.left == null && current.right == null) { // leaf node
+                if (current.left == null && current.right == null) { // no children
                     if (value > parent.value) {
                         parent.right = null;
                     } else {
@@ -96,9 +96,15 @@ function BinaryTree() {
 
                 }
             } else { // no parent, meaning root node
+                if (current.left == null && current.right == null) { // no children
+                    this.root = null;
+                } else if (current.left == null || current.right == null) { // 1 child
+                    this.root = current.left || current.right;
+                } else { // 2 children
 
+                }
             }
-        } else { // not in tree, return
+        } else { // value not in tree, return
             return;
         }
     };
